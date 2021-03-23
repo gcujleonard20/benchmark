@@ -1,0 +1,38 @@
+/* Simple console-based calculator program*/
+#include <stdio.h>
+
+int main()
+{
+	//variable declarations
+	char choice;
+	int a;
+	int b;
+
+	printf("Enter a function (+, -, *, /):");			//prompt to user to enter a calculation function
+	scanf_s("%c", &choice);
+	printf("Enter two numbers:");						//prompt to user to enter 2 numbers to be calculated
+	scanf_s("%i %i", &a, &b);
+
+	switch (choice) {									//switch function to determine what equation to be used
+	//algorithms for each of the given possible functions of the calculator	
+	case '+':
+		printf("%i + %i = %i", a, b, a + b);
+		break;
+	case '-':
+		printf("%i - %i = %i", a, b, a - b);
+		break;
+	case '*':
+		printf("%i * %i = %i", a, b, a * b);
+		break;
+	case '/':
+		if (b == 0)										//safeguard against dividing by zero error
+		{
+			printf("Division by zero! Exiting...\n");
+			exit(-1);
+		}
+		printf("%i / %i = %i", a, b, a / b);
+		break;
+	}
+	
+	return 0;
+}
