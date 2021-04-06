@@ -11,6 +11,7 @@ void addition();
 void subtraction();
 void multiplication();
 void division();
+void paycheck();
 void calculator_operations();
 
 int main()
@@ -35,6 +36,9 @@ int main()
 			case '*': multiplication();
 				break;
 			case '/': division();
+				break;
+			case 'P':
+			case 'p': paycheck();
 				break;
 			case 'H':
 			case 'h': calculator_operations();
@@ -61,6 +65,7 @@ void calculator_operations()						//Call to display main menu and options
 	printf("Enter - for Subtraction \n");
 	printf("Enter * for Multiplication \n");
 	printf("Enter / for Division \n");
+	printf("Enter 'P' or 'p' to calc paycheck \n");
 }
 
 void addition()										//function for addition of multiple numbers
@@ -114,4 +119,25 @@ void division()										//function to divide two numbers
 	}
 	d = a / b;
 	printf("\nQuotient of the numbers entered = %d\n", d);
+}
+
+void paycheck()
+{
+	struct employee
+	{
+		char name[50];
+		int hours;
+		int hourly_pay;
+		int wages;
+	};
+	struct employee pay;
+
+	printf("\nPlease enter your name:");
+	scanf_s("%s", &pay.name[50]);
+	printf("\nPlease enter total hours worked:");
+	scanf_s("%i", &pay.hours);
+	printf("\nPlease enter your hourly pay rate:");
+	scanf_s("%i", &pay.hourly_pay);
+	pay.wages = pay.hours * pay.hourly_pay;
+	printf("\nHello %s your paycheck will be %i after working %i hours this week", pay.name, pay.wages, pay.hours);
 }
