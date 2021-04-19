@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define KEY "Enter the calculator Operation you want to do: Press 'H' or 'h' for menu."
 
@@ -121,16 +122,16 @@ void division()										//function to divide two numbers
 	printf("\nQuotient of the numbers entered = %d\n", d);
 }
 
-void paycheck()
+void paycheck()						// function to calculate pay based on number of hours worked and pay rate
 {
-	struct employee
+	struct employee					// structure for holding employees name, hours, hourly pay, and wages
 	{
 		char name[50];
 		int hours;
 		int hourly_pay;
 		int wages;
 	};
-	struct employee pay;
+	struct employee pay;			// naming of structure for employee pay
 
 	printf("\nPlease enter your name:");
 	scanf_s("%s", &pay.name[50]);
@@ -140,4 +141,10 @@ void paycheck()
 	scanf_s("%i", &pay.hourly_pay);
 	pay.wages = pay.hours * pay.hourly_pay;
 	printf("\nHello %s your paycheck will be %i after working %i hours this week", pay.name, pay.wages, pay.hours);
+
+	//FILE* fp;						//I/O update to write results of employee pay function to a file named paycheck.txt
+
+	//fp = fopen_s("milestone/paycheck.txt", "w+");
+	//fprintf(fp, "\nHello %s your paycheck will be %i after working %i hours this week", pay.name, pay.wages, pay.hours);
+	//fclose(fp);
 }
